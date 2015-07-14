@@ -1,6 +1,6 @@
 # src-stream [![NPM version](https://badge.fury.io/js/src-stream.svg)](http://badge.fury.io/js/src-stream)  [![Build Status](https://travis-ci.org/doowb/src-stream.svg)](https://travis-ci.org/doowb/src-stream)
 
-> Create a readable stream that handles being a passthrough stream.
+> Wrap readable streams to turn them into passthrough streams.
 
 Install with [npm](https://www.npmjs.com/)
 
