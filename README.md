@@ -1,49 +1,82 @@
-# src-stream [![NPM version](https://badge.fury.io/js/src-stream.svg)](http://badge.fury.io/js/src-stream)  [![Build Status](https://travis-ci.org/doowb/src-stream.svg)](https://travis-ci.org/doowb/src-stream) 
+# src-stream [![NPM version](https://badge.fury.io/js/src-stream.svg)](http://badge.fury.io/js/src-stream)  [![Build Status](https://travis-ci.org/doowb/src-stream.svg)](https://travis-ci.org/doowb/src-stream)
 
 > Create a readable stream that handles being a passthrough stream.
 
-## Install with [npm](npmjs.org)
+Install with [npm](https://www.npmjs.com/)
 
-```bash
-npm i src-stream --save
+```sh
+$ npm i src-stream --save
 ```
 
 ## Usage
 
 ```js
-var srcStream = require('src-stream');
+var src = require('src-stream');
 ```
 
 ## API
+
 <!-- add a path or glob pattern for files with code comments to use for docs  -->
-{%= apidocs("index.js") %}
 
-## Related projects
-<!-- add an array of related projects, then un-escape the helper -->
-{%= related([]) %}  
+### [srcStream](index.js#L39)
 
-## Running tests
-Install dev dependencies.
+Wrap a source stream to passthrough any data that's being written to it.
 
-```bash
-npm i -d && npm test
+**Params**
+
+* `stream` **{Stream}**: Readable stream to be wrapped.
+* `returns` **{Stream}**: Duplex stream to handle reading and writing.
+
+**Example**
+
+```js
+var src = require('src-stream');
+
+// wrap some plugin that creates a readable stream
+var stream = src(plugin());
+
+fs.createReadStream('./package.json')
+  .pipe(stream)
+  .on('data', console.log)
+  .on('end', function () {
+    console.log();
+    console.log('Finished');
+    console.log();
+  });
 ```
 
+## Related projects
+
+<!-- add an array of related projects, then un-escape the helper -->
+
+* [duplexify](https://github.com/mafintosh/duplexify): Turn a writeable and readable stream into a streams2 duplex stream with support for async… [more](https://github.com/mafintosh/duplexify)
+* [merge-stream](https://github.com/grncdr/merge-stream): Create a stream that emits events from multiple other streams
+* [stream-loader](https://github.com/jonschlinkert/stream-loader): create a read stream from a glob of files. can be used as a loader-cache… [more](https://github.com/jonschlinkert/stream-loader)
+* [through2](https://github.com/rvagg/through2#readme): A tiny wrapper around Node streams2 Transform to avoid explicit subclassing noise
+
+## Running tests
+
+Install dev dependencies:
+
+```sh
+$ npm i -d && npm test
+```
 
 ## Contributing
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/doowb/src-stream/issues)
 
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/doowb/src-stream/issues/new)
 
 ## Author
 
 **Brian Woodward**
- 
+
 + [github/doowb](https://github.com/doowb)
-+ [twitter/doowb](http://twitter.com/doowb) 
++ [twitter/doowb](http://twitter.com/doowb)
 
 ## License
+
 Copyright © 2015 Brian Woodward
-Released under the MIT license
+Released under the MIT license.
 
 ***
 
