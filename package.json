@@ -26,5 +26,15 @@
     "duplexify": "^3.4.2",
     "merge-stream": "^0.1.8",
     "through2": "^2.0.0"
+  },
+  "verb": {
+    "related": {
+      "list": [
+        "stream-loader",
+        "merge-stream",
+        "duplexify",
+        "through2"
+      ]
+    }
   }
 }
