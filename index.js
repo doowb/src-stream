@@ -18,7 +18,7 @@ var duplexify = require('duplexify');
  * ```js
  * var src = require('src-stream');
  *
- * // wrap some plugin that creates a readable stream
+ * // wrap something that returns a readable stream
  * var stream = src(plugin());
  *
  * fs.createReadStream('./package.json')

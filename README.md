@@ -16,8 +16,6 @@ var src = require('src-stream');
 
 ## API
 
-<!-- add a path or glob pattern for files with code comments to use for docs  -->
-
 ### [srcStream](index.js#L39)
 
 Wrap a source stream to passthrough any data that's being written to it.
@@ -32,7 +30,7 @@ Wrap a source stream to passthrough any data that's being written to it.
 ```js
 var src = require('src-stream');
 
-// wrap some plugin that creates a readable stream
+// wrap something that returns a readable stream
 var stream = src(plugin());
 
 fs.createReadStream('./package.json')
@@ -46,8 +44,6 @@ fs.createReadStream('./package.json')
 ```
 
 ## Related projects
-
-<!-- add an array of related projects, then un-escape the helper -->
 
 * [duplexify](https://github.com/mafintosh/duplexify): Turn a writeable and readable stream into a streams2 duplex stream with support for async… [more](https://github.com/mafintosh/duplexify)
 * [merge-stream](https://github.com/grncdr/merge-stream): Create a stream that emits events from multiple other streams
